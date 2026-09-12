@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#111827" />
+  <title>Refrigerator Sealed-System Tech</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="topbar">
+  <div>
+    <div class="eyebrow">FIELD TOOL</div>
+    <h1>Refrigerator Sealed-System Tech</h1>
+  </div>
+  <div class="top-actions"><button id="installBtn" class="icon-btn hidden" title="Install app">INSTALL</button><button id="shareBtn" class="icon-btn" title="Share app">SHARE</button><button id="modeBtn" class="icon-btn" title="Toggle technician mode">TECH</button></div>
+</header>
+
+<main class="shell">
+  <section class="hero card">
+    <div>
+      <span class="status-dot"></span> Research engine ready
+      <h2>Know the unit before you charge it.</h2>
+      <p>Exact-model research, sealed-system procedures, verification gates and technician checklists.</p>
+    </div>
+    <div class="hero-stat"><strong id="historyCount">0</strong><span>saved repairs</span></div>
+  </section>
+
+  <section class="card form-card">
+    <div class="section-head"><h3>New repair</h3><button id="plateBtn" class="secondary">📷 Rating Plate</button></div>
+    <label>Model number<input id="model" placeholder="e.g. WRF555SDFZ15" autocomplete="off" /></label>
+    <label>Repair type<select id="repair">
+      <option>Compressor replacement</option><option>Not cooling</option><option>Refrigerant leak</option>
+      <option>Restriction</option><option>Recharge</option><option>Compressor diagnosis</option><option>Evacuation</option><option>Other</option>
+    </select></label>
+    <label>Technician notes<textarea id="notes" placeholder="Symptoms, pressures, temperatures, what you've already tested..."></textarea></label>
+    <input id="plateInput" type="file" accept="image/*" capture="environment" hidden />
+    <button id="researchBtn" class="primary">RESEARCH MODEL</button>
+    <div id="plateStatus" class="muted"></div>
+  </section>
+
+  <section id="results" class="hidden">
+    <div id="summary" class="card"></div>
+    <div class="grid2">
+      <div id="specs" class="card"></div>
+      <div id="conflicts" class="card"></div>
+    </div>
+    <div id="procedure" class="card"></div>
+    <div class="grid2">
+      <div id="evacuation" class="card"></div>
+      <div id="charging" class="card"></div>
+    </div>
+    <div class="grid2">
+      <div id="startup" class="card"></div>
+      <div id="diagnostics" class="card"></div>
+    </div>
+    <div id="safety" class="card danger-card"></div>
+    <div id="sources" class="card"></div>
+    <div class="card checklist-card">
+      <div class="section-head"><h3>Compressor replacement checklist</h3><button id="resetChecklist" class="secondary">Reset</button></div>
+      <div id="checklist"></div>
+    </div>
+  </section>
+
+  <section class="card history-card">
+    <div class="section-head"><h3>Repair history</h3><button id="clearHistory" class="secondary">Clear</button></div>
+    <div id="history"></div>
+  </section>
+</main>
+<div id="toast" class="toast hidden"></div>
+<script src="app.js"></script>
+</body>
+</html>
